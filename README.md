@@ -1,4 +1,4 @@
-# Plant2Plate: Route Optimization and Recipe Recommendation App
+# Plan2Plate: Route Optimization and Recipe Recommendation App
 
 ## Overview
 
