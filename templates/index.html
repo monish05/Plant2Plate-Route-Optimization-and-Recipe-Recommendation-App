@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan2Plate: Your Personal Meal Planning Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f2f1; /* Light pastel green background */
+            color: #005A9C; /* Deep blue text, consider changing if needed */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 100px auto; /* Center container */
+            padding: 20px;
+            border-radius: 8px;
+            background: #FFFFFF; /* White background for container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #00695c; /* Darker shade of green */
+        }
+
+        h1.large-title {
+            font-size: 36px;
+            margin-bottom: 0;
+        }
+
+        h2.subtitle {
+            font-size: 24px;
+            margin-top: 10px;
+            color: #004d40; /* Slightly darker green for subtitle */
+        }
+
+        .btn-container, form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button, input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            background-color: #81c784; /* Soft green button */
+            color: #FFFFFF; /* White button text */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #4caf50; /* Darker green on hover */
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2e7d32; /* Green link text */
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: #1b5e20; /* Darker green link text on hover */
+        }
+
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: calc(100% - 22px); /* Adjust width for padding and border */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="large-title">Plan2Plate</h1>
+    <h2 class="subtitle">Your Personal Meal Planning Guide</h2>
+
+    <!-- Content and form below as before -->
+    <form action="/get_schedule" method="get">
+        <h2>We know you are busy...Let us help you</h2>
+        <h3><a href="https://forms.gle/ywdHHSEbdsfPSVLW6" target="_blank">Enter your Schedule here</a></h3>
+        <label for="schedule_num">Enter your Net-ID Number:</label><br>
+        <input type="text" id="schedule_num" name="schedule_num"><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>

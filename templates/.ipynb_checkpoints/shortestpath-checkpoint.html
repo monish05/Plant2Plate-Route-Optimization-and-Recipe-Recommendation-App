@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Storage</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f2f1; /* Light pastel green background to match the Plan2Plate theme */
+            color: #005A9C; /* Deep blue text */
+        }
+
+        .container {
+            width: auto;
+            margin: 100px 15px 20px 15px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff; /* White background for contrast */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #00695c; /* Darker shade of green to match the Plan2Plate theme */
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            background-color: #81c784; /* Soft green button to match the Plan2Plate theme */
+            color: #fff; /* White button text */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block; /* Center the button */
+            margin: 10px auto; /* Auto margins for horizontal centering */
+        }
+
+        button:hover {
+            background-color: #4caf50; /* Darker green on hover to match the Plan2Plate theme */
+        }
+
+        input[type="text"] {
+            width: calc(100% - 40px); /* Adjust width for padding */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #f0f4f4; /* Light background for input to match the Plan2Plate theme */
+        }
+
+        #storedText {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter and Store Text</h2>
+    <form id="textForm" action="" method="get">
+        <input type="text" id="storedText" name="storedText" placeholder="Enter address">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('textForm').onsubmit = function() {
+        const input = document.getElementById('storedText').value;
+        localStorage.setItem('storedText', input);
+        this.action = '/displayf.html';
+    };
+</script>
+
+</body>
+</html>

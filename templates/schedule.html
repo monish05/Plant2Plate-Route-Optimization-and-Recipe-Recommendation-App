@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f2f1; /* Light pastel green background */
+            color: #005A9C; /* Deep blue text */
+        }
+
+        .container {
+            width: auto; /* Adjust width to auto to take necessary space */
+            margin: 100px 15px 20px 15px; /* 100px top, 15px right, 20px bottom, 15px left */
+            padding: 20px;
+            border-radius: 8px;
+            background: #FFFFFF; /* White background for contrast */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #00695c; /* Darker shade of green */
+            margin-bottom: 20px;
+        }
+
+        .schedule {
+            border-collapse: collapse;
+            width: 100%; /* Use 100% of the container's width */
+        }
+
+        .schedule thead {
+            background-color: #81c784; /* Soft green background for headers, adjusted to match theme */
+            color: #fff;
+        }
+
+        .schedule th, .schedule td {
+            text-align: left;
+            padding: 12px 20px;
+        }
+
+        .schedule tr:not(:first-child) {
+            border-bottom: 1px solid #ccc; /* Lighter border color for a subtle look */
+        }
+
+        .schedule tr:nth-child(even) {
+            background-color: #f0f4f4; /* Lighter shade for even rows, adjusted to match theme */
+        }
+
+        .schedule tr:hover {
+            background-color: #cceae7; /* Soft green background on hover, adjusted to match theme */
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 600px) {
+            .schedule th, .schedule td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            background-color: #81c784; /* Soft green button, matched to theme */
+            color: #fff; /* White button text */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4caf50; /* Darker green on hover, matched to theme */
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2e7d32; /* Green link text, adjusted to match theme */
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: #1b5e20; /* Darker green link text on hover, adjusted to match theme */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Your Schedule</h1>
+    <table class="schedule">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Time Slot</th>
+                <th>Your Free Time(min)</th>
+                <th>Dish Name</th>
+                <th>Prep time(min)</th>
+                <th>Links</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example data row -->
+           {% for row in data %}
+            <tr>
+                <td>{{ row['Day'] }}</td>
+                <td>{{ row['Time Slot'] }}</td>
+                <td>{{ row['Duration'] }}</td>
+                <td>{{ row['recipe_name'] }}</td>
+                <td>{{ row['total_time'] }}</td>
+                <td><a href="{{ row['url'] }}" target="_blank">Go</a></td>
+                
+                
+            </tr>
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <a href="https://forms.gle/ywdHHSEbdsfPSVLW6" target="_blank">Enter your Schedule here</a>
+
+    <div class="btn-container">
+        <button onclick="activateRMS()">Refresh</button>
+        <!-- New Button for returning to the home page -->
+        <button onclick="window.location.href='/'">Return to Home Page</button>
+        <button onclick="window.location.href='/quickestroute.html'">Find Closest store</button>
+    </div>
+</div>
+
+<script>
+    function activateRMS() {
+        window.location.href = '/schedule.html';
+    }
+</script>
+
+</body>
+</html>

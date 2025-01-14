@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Display</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0dff00; /* Gold background */
+            color: #005a9c; /* Deep blue text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            flex-direction: column; /* Stack items vertically */
+        }
+
+        .container, .data-container {
+            width: 75%; /* Match the iframe width for consistency */
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff; /* White background for contrast */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center; /* Center content */
+        }
+
+        iframe {
+            width: 100%; /* Adjusted width to fill container */
+            height: 450px; /* Adjusted height */
+            border: none; /* Removes the default frame border */
+            border-radius: 8px; /* Rounded edges for the iframe */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; /* Space between text and table */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            border-radius: 8px; /* Rounded corners for the table */
+            overflow: hidden; /* Ensures the border-radius clips the table content */
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            color: #005a9c; /* Deep blue text for contrast */
+        }
+
+        th {
+            background-color: #a6efa4; /* Pastel orange background for header */
+            color: #fff; /* White text for header */
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #fff; /* White background for odd rows */
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f0f0f0; /* Light grey background for even rows */
+        }
+
+        tbody tr:hover {
+            background-color: #97ea83; /* Pastel yellow background on hover */
+            cursor: pointer; /* Change cursor to indicate interactivity */
+        }
+
+        h3 {
+            color: #005a9c; /* Deep blue text to match the style */
+            margin-bottom: 20px; /* Space between the title and the content */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h3>Map</h3>
+    <iframe src="{{ url_for('static', filename='madison_map.html') }}"></iframe>
+</div>
+
+<div class="data-container">
+    <h3>Location Data</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Destination Address</th>
+                <th>Duration (min)</th>
+                <th>Distance (miles)</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in coord_data %}
+            <tr>
+                <td>{{row['Destination Address']}}</td>
+                <td>{{row['Duration(min)']}}</td>
+                <td>{{row['Distance(miles)']}}</td>
+                <td>{{row['Name']}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+
+
+
+
